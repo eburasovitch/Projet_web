@@ -27,9 +27,6 @@ const Billboard: React.FC = () => {
         <p className="text-white text-1xl md:text-5xl lg:text-6xl font-bold drop-shadow-xl">
           {data?.title}
         </p>
-        <p className="text-white text-[8px] md:text-lg mt-3 md:mt-8 mx-auto lg:w-[50%] drop-shadow-xl">
-          {data?.description}
-        </p>
         <div className="flex flex-col items-center mt-3 md:mt-4 gap-3">
           <PlayButton movieId={data?.id} />
           <button
