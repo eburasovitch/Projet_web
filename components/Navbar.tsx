@@ -49,6 +49,9 @@ const Navbar = () => {
           <Link href="/Search">
             <NavbarItem label="Films" />
           </Link>
+          <Link href="/AddMoviePage">
+            <NavbarItem label="Add Movie" />
+          </Link>
           <NavbarItem label="Browse by Languages" />
         </div>
         <div onClick={toggleMobileMenu} className="lg:hidden flex flex-row items-center gap-2 ml-8 cursor-pointer relative">
