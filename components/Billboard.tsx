@@ -23,10 +23,11 @@ const Billboard: React.FC = () => {
         loop
         src={data?.videoUrl}
       ></video>
-      <div className="absolute top-[50%] transform translate-y-[-50%] md:top-[50%] md:left-[50%] md:translate-y-[-50%] md:translate-x-[-50%] ml-4 md:ml-16 text-center">
+      <div className="absolute top-[70%] transform translate-y-[-50%] md:top-[50%] md:left-[50%] md:translate-y-[-50%] md:translate-x-[-50%] ml-4 md:ml-16 text-center">
         <p className="text-white text-1xl md:text-5xl lg:text-6xl font-bold drop-shadow-xl">
           {data?.title}
         </p>
+        <br></br><br></br>
         <div className="flex flex-col items-center mt-3 md:mt-4 gap-3">
           <PlayButton movieId={data?.id} />
           <button
