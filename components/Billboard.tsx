@@ -26,6 +26,7 @@ const Billboard: React.FC = () => {
       
       <div className="absolute top-[70%] transform translate-y-[-50%] md:top-[50%] md:left-[50%] md:translate-y-[-50%] md:translate-x-[-50%] ml-4 md:ml-16 text-center">
         <br></br><br></br><br></br><br></br><br></br><br></br>
+        <br></br><br></br><br></br><br></br><br></br><br></br>
         <p className="text-white text-1xl md:text-5xl lg:text-6xl font-bold drop-shadow-xl">
           {data?.title}
         </p>
