@@ -1,9 +1,9 @@
-import React, { useCallback } from 'react';
-import { InformationCircleIcon } from '@heroicons/react/24/outline';
+import React, { useCallback } from "react";
+import { InformationCircleIcon } from "@heroicons/react/24/outline";
 
-import PlayButton from '@/components/PlayButton';
-import useBillboard from '@/hooks/useBillboard';
-import useInfoModalStore from '@/hooks/useInfoModalStore';
+import PlayButton from "@/components/PlayButton";
+import useBillboard from "@/hooks/useBillboard";
+import useInfoModalStore from "@/hooks/useInfoModalStore";
 
 const Billboard: React.FC = () => {
   const { openModal } = useInfoModalStore();
@@ -15,12 +15,19 @@ const Billboard: React.FC = () => {
 
   return (
     <div className="relative h-[56.25vw]">
-      <video poster={data?.thumbnailUrl} className="w-full h-[56.25vw] object-cover brightness-[60%] transition duration-500" autoPlay muted loop src={data?.videoUrl}></video>
+      <video
+        poster={data?.thumbnailUrl}
+        className="w-full h-[56.25vw] object-cover brightness-[60%] transition duration-500"
+        autoPlay
+        muted
+        loop
+        src={data?.videoUrl}
+      ></video>
       <div className="absolute top-[50%] transform translate-y-[-50%] md:top-[50%] md:left-[50%] md:translate-y-[-50%] md:translate-x-[-50%] ml-4 md:ml-16 text-center">
         <p className="text-white text-1xl md:text-5xl lg:text-6xl font-bold drop-shadow-xl">
           {data?.title}
         </p>
-        <p className="text-white text-[8px] md:text-lg mt-3 md:mt-8 w-[90%] md:w-[80%] lg:w-[50%] drop-shadow-xl">
+        <p className="text-white text-[8px] md:text-lg mt-3 md:mt-8 mx-auto lg:w-[50%] drop-shadow-xl">
           {data?.description}
         </p>
         <div className="flex flex-col items-center mt-3 md:mt-4 gap-3">
