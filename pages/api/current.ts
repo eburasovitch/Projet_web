@@ -1,5 +1,4 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import prismadb from '@/libs/prismadb';
 import serverAuth from "@/libs/serverAuth";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -8,13 +7,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return res.status(405).end();
     }
 
-    await serverAuth(req, res);
+    const { currentUser } = await serverAuth(req, res);
 
-    const movies = await prismadb.movie.findMany();
-
-    return res.status(200).json(movies);
+    return res.status(200).json(currentUser);
   } catch (error) {
-    console.log({ error })
+    console.log(error);
     return res.status(500).end();
   }
 }
