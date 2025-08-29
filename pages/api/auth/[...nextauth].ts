@@ -26,11 +26,13 @@ export const authOptions: AuthOptions = {
         },
         password: {
           label: 'Password',
-          type: 'passord'
+          type: 'password'
         }
       },
       async authorize(credentials) {
+        console.log('Authorize called with:', credentials);
         if (!credentials?.email || !credentials?.password) {
+          console.log('Email ou mot de passe manquant');
           throw new Error('Email and password required');
         }
 
@@ -39,10 +41,12 @@ export const authOptions: AuthOptions = {
         }});
 
         if (!user || !user.hashedPassword) {
+          console.log('Utilisateur introuvable ou pas de password hash');
           throw new Error('Email does not exist');
         }
 
         const isCorrectPassword = await compare(credentials.password, user.hashedPassword);
+        console.log('Password correct?', isCorrectPassword);
 
         if (!isCorrectPassword) {
           throw new Error('Incorrect password');
@@ -58,10 +62,7 @@ export const authOptions: AuthOptions = {
   debug: process.env.NODE_ENV === 'development',
   adapter: PrismaAdapter(prismadb),
   session: { strategy: 'jwt' },
-  jwt: {
-    secret: process.env.NEXTAUTH_JWT_SECRET,
-  },
-  secret: process.env.NEXTAUTH_SECRET
+  secret: process.env.NEXTAUTH_SECRET,
 };
 
 export default NextAuth(authOptions);

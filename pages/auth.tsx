@@ -39,19 +39,27 @@ const Auth = () => {
   }, []);
 
   const login = useCallback(async () => {
-    try {
-      await signIn('credentials', {
-        email,
-        password,
-        redirect: false,
-        callbackUrl: '/'
-      });
+  try {
+    console.log('🔐 Tentative de connexion...');
+    
+    const result = await signIn('credentials', {
+      email,
+      password,
+      redirect: false,
+    });
 
-      router.push('/profiles');
-    } catch (error) {
-      console.log(error);
+    console.log('signIn result:', result);
+
+    if (result?.error) {
+      console.log('Erreur login:', result.error);
+      return;
     }
-  }, [email, password, router]);
+
+    router.push('/profiles');
+  } catch (error) {
+    console.log(error);
+  }
+}, [email, password, router]);
 
   const register = useCallback(async () => {
     try {
